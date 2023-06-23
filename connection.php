@@ -78,11 +78,51 @@ if($conn->query($sql)==TRUE){
 /*$sql = "CREATE TABLE pharmaceuticalCompany(
     pcName INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     address varchar(30),
-    phoneNo int(10),
+    phoneNo int(10)
 )";
 if($conn->query($sql)==TRUE){
     echo "</br>";
     echo "Table pharmaceuticalCompany created successfully";
+}else{
+    echo "Error creating table: ".$conn->error;
+}*/
+
+/*$sql = "CREATE TABLE staff(
+    staffno INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name varchar(20),
+    prescriptionno int(8),
+    salary int(6),
+    bonus int(6)
+)";
+if($conn->query($sql)==TRUE){
+    echo "</br>";
+    echo "Table staff created successfully";
+}else{
+    echo "Error creating table: ".$conn->error;
+}*/
+
+/*$sql = "CREATE TABLE drug(
+    TradeName varchar(40) PRIMARY KEY,
+    formula varchar(20),
+    price int(6)
+)";
+if($conn->query($sql)==TRUE){
+    echo "</br>";
+    echo "Table drug created successfully";
+}else{
+    echo "Error creating table: ".$conn->error;
+}*/
+
+/*$sql = "CREATE TABLE contracts(
+    textofcontract varchar(255),
+    supervisor varchar(20),
+    startdate date,
+    enddate date
+)";
+
+if($conn->query($sql)==TRUE){
+    echo "</br>";
+    echo "Table contracts created successfully";
 }else{
     echo "Error creating table: ".$conn->error;
 }*/
