@@ -1,23 +1,23 @@
 <?php
-$servername = "localhost";
+$hostname = "localhost";
 $username = "root";
 $password = "";
 $dbname = "drugdispensarydb";
 
-//creating connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-//checking connection
-if($conn -> connect_error){
-    die("connection failed: ". $conn -> connect_error);
+try {
+    $connection = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
+    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch(PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+    exit(); // Exit the script if the connection fails
 }
-echo "connected successfully";
 
 /*creating database
 $sql = "CREATE DATABASE drugDispensaryDB";
-if($conn->query($sql)==TRUE){
+if($conneection->query($sql)==TRUE){
     echo "database created successfully";
 }else{
-    echo "error creating database: ".$conn->error;
+    echo "error creating database: ".$connection->error;
 }*/
 
 /*creating table doctor
@@ -27,11 +27,11 @@ $sql = "CREATE TABLE Doctor(
     Specialty varchar(30),
     Years_of_experience int(2)
 )";
-if($conn->query($sql)==TRUE){
+if($connection->query($sql)==TRUE){
     echo "</br>";
     echo "Table Doctor created successfully";
 }else{
-    echo "Error creating table: ".$conn->error;
+    echo "Error creating table: ".$connection->error;
 }*/
 
 /*$sql = "CREATE TABLE Patient(
@@ -40,11 +40,11 @@ if($conn->query($sql)==TRUE){
     address varchar(30),
     age int(2)
 )";
-if($conn->query($sql)==TRUE){
+if($connection->query($sql)==TRUE){
     echo "</br>";
     echo "Table Patient created successfully";
 }else{
-    echo "Error creating table: ".$conn->error;
+    echo "Error creating table: ".$connection->error;
 }*/
 
 /*$sql = "CREATE TABLE prescriptions(
@@ -54,11 +54,11 @@ if($conn->query($sql)==TRUE){
     patientssn INT(6),
     docssn INT(6)
 )";
-if($conn->query($sql)==TRUE){
+if($connection->query($sql)==TRUE){
     echo "</br>";
     echo "Table prescriptions created successfully";
 }else{
-    echo "Error creating table: ".$conn->error;
+    echo "Error creating table: ".$connection->error;
 }*/
 
 /*$sql = "CREATE TABLE pharmacy(
@@ -68,11 +68,11 @@ if($conn->query($sql)==TRUE){
     profitPercentage FLOAT(6),
     drugTradeName varchar(30)
 )";
-if($conn->query($sql)==TRUE){
+if($connection->query($sql)==TRUE){
     echo "</br>";
     echo "Table pharmacy created successfully";
 }else{
-    echo "Error creating table: ".$conn->error;
+    echo "Error creating table: ".$connection->error;
 }*/
 
 /*$sql = "CREATE TABLE pharmaceuticalCompany(
@@ -80,11 +80,11 @@ if($conn->query($sql)==TRUE){
     address varchar(30),
     phoneNo int(10)
 )";
-if($conn->query($sql)==TRUE){
+if($connection->query($sql)==TRUE){
     echo "</br>";
     echo "Table pharmaceuticalCompany created successfully";
 }else{
-    echo "Error creating table: ".$conn->error;
+    echo "Error creating table: ".$connection->error;
 }*/
 
 /*$sql = "CREATE TABLE staff(
@@ -94,11 +94,11 @@ if($conn->query($sql)==TRUE){
     salary int(6),
     bonus int(6)
 )";
-if($conn->query($sql)==TRUE){
+if($connection->query($sql)==TRUE){
     echo "</br>";
     echo "Table staff created successfully";
 }else{
-    echo "Error creating table: ".$conn->error;
+    echo "Error creating table: ".$connection->error;
 }*/
 
 /*$sql = "CREATE TABLE drug(
@@ -106,11 +106,11 @@ if($conn->query($sql)==TRUE){
     formula varchar(20),
     price int(6)
 )";
-if($conn->query($sql)==TRUE){
+if($connection->query($sql)==TRUE){
     echo "</br>";
     echo "Table drug created successfully";
 }else{
-    echo "Error creating table: ".$conn->error;
+    echo "Error creating table: ".$connection->error;
 }*/
 
 /*$sql = "CREATE TABLE contracts(
@@ -120,12 +120,12 @@ if($conn->query($sql)==TRUE){
     enddate date
 )";
 
-if($conn->query($sql)==TRUE){
+if($connection->query($sql)==TRUE){
     echo "</br>";
     echo "Table contracts created successfully";
 }else{
-    echo "Error creating table: ".$conn->error;
+    echo "Error creating table: ".$connection->error;
 }*/
 
-//$conn->close();
+//$connection->close();
 ?>
